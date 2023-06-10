@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -12,14 +12,18 @@ public class Main {
             System.out.println("0. Keluar");
             System.out.print("Pilih salah satu: ");
             choice = scanner.nextInt();
+            scanner.nextLine(); // Menambahkan scanner.nextLine() untuk membersihkan baris baru
 
             switch (choice) {
                 case 1:
-                if (Soal1.printSubstring()) {
-                    choice = -1;
-                }
-                break;
+                    if (Soal1.printSubstring()) {
+                        choice = -1;
+                    }
+                    break;
                 case 2:
+                    System.out.print("Mata Kuliah: ");
+                    String matakuliah = scanner.nextLine();
+
                     System.out.print("Kehadiran: ");
                     int kehadiran = scanner.nextInt();
 
@@ -32,6 +36,7 @@ public class Main {
                     double nilaiAkhir = Soal2.calculateFinalScore(kehadiran, uts, uas);
                     String grade = Soal2.convertToGrade(nilaiAkhir);
 
+                    System.out.println("Mata Kuliah: " + matakuliah);
                     System.out.println("Nilai Akhir: " + nilaiAkhir);
                     System.out.println("Grade: " + grade);
                     break;
